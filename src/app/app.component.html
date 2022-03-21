@@ -1,0 +1,27 @@
+<header>
+  <nav class="navbar navbar-dark bg-dark">
+    <div class="container-fluid">
+      <span class="navbar-brand mb-0 h1">CRM Empleados</span>
+    </div>
+  </nav>
+</header>
+<main>
+  <section class="container">
+
+    <div *ngIf="alert" class="alert alert-danger alert-dismissible fade show mt-4" role="alert">
+      <strong>Usuario duplicado</strong> Tienes que introducir un usuario que no exista
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"
+        (click)="quitarAlert()"></button>
+    </div>
+
+
+    <div class="row">
+      <div class="col-12 col-md-4">
+        <app-form (nuevoEmpleado)="onNuevoEmpleado($event)"></app-form>
+      </div>
+      <div class="col-12 col-md-8">
+        <app-list-empleados [listaEmpleados]="arrEmpleados"></app-list-empleados>
+      </div>
+    </div>
+  </section>
+</main>
